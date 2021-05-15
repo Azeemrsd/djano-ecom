@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{product.name}}{% endblock title %}
+
+{% block content %}
+<div class="container">
+<a href="{% url 'products' %}">Back</a>
+<h1>{{product.name}}</h1>
+<div class="grid-2">
+<div class="card">
+<img src="{{product.image_url}}" alt="">
+</div>
+<div class="m-1">
+<h3>Descripion</h3>
+{{product.description}}
+{% if product.in_stock %}
+<h4>In stock</h4>
+<h4>Item Left: {{product.stock_left}}</h4>
+{% else %}
+<h4>Currently out of stock</h4>
+{% endif %}
+<h4>Price</h4>
+<h3>{{product.currency}} {{product.price}}</h3>
+<a href="" class="btn btn-success">Add to Cart</a>
+</div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Products{% endblock title %}
+
+{% block content %}
+<div class="grid-4 grid-3 m-1">
+{% for product in products %}
+<div class="card">
+<h4 class="text-center">{{product.name}}</h4>
+<img src="{{product.image_url}}" alt="{{product.name}}">
+<div class="flex">
+<p>{{product.currency}} {{product.price}}</p>
+<a class="btn btn-primary" href="{% url 'product-details' product.slug %}">Details</a>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock content %}
